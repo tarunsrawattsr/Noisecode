@@ -13,10 +13,7 @@ IF %ERRORLEVEL% NEQ 0 (
 where choco >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
     echo 🚀 Installing Chocolatey...
-    powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-     "Set-ExecutionPolicy Bypass -Scope Process -Force; ^
-     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; ^
-     iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
     
     IF %ERRORLEVEL% NEQ 0 (
         echo ❌ Chocolatey installation failed. Check your internet connection or proxy settings.
