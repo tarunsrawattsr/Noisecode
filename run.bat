@@ -1,40 +1,33 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal
 
-:: Ensure dependencies are installed
-if not exist "%ProgramData%\chocolatey\bin\choco.exe" (
-    echo ❗ Please run setup.bat first to install dependencies.
-    pause
-    exit /b 1
-)
-
-:: Set build directory
+:: ✅ Set build directory
 set BUILD_DIR=build
 
-:: Create build directory
+:: ✅ Create build directory if it doesn't exist
 if not exist %BUILD_DIR% (
     mkdir %BUILD_DIR%
 )
 
-:: Run CMake and build the project
-echo 🛠️ Configuring with CMake...
-cmake -S . -B %BUILD_DIR%
+:: ✅ Run CMake with MinGW generator
+echo 🛠️ Generating with MinGW Makefiles...
+cmake -S . -B %BUILD_DIR% -G "MinGW Makefiles"
 IF %ERRORLEVEL% NEQ 0 (
     echo ❌ CMake configuration failed.
     pause
     exit /b 1
 )
 
-echo 🔨 Building project...
-cmake --build %BUILD_DIR%
+:: ✅ Build with mingw32-make (not make or nmake!)
+echo 🔨 Building project with mingw32-make...
+cmake --build %BUILD_DIR% -- -j
 IF %ERRORLEVEL% NEQ 0 (
     echo ❌ Build failed.
     pause
     exit /b 1
 )
 
-:: Run the compiled executable
-echo 🚀 Running the application...
+:: ✅ Run your app
 cd %BUILD_DIR%
 my_app.exe
 cd ..
