@@ -1,6 +1,6 @@
 # 🎧 Audiophile – A C-Based Audio Steganographor
 
-**Audiophile** is a C-based steganography tool designed to securely embed secret text data into audio files without compromising perceptual quality. Inspired by cutting-edge research, Audiophile combines **Advanced Encryption Standard (AES)**, **Huffman and LZW compression**, and **Frequency Hopping Spread Spectrum (FHSS)** techniques to deliver a highly robust, covert communication system.
+**Audiophile** is a C-based steganography tool designed to securely embed secret text data into audio files without compromising perceptual quality. Audiophile combines **Advanced Encryption Standard (AES)**, **Huffman and LZW compression**, and **Frequency Hopping Spread Spectrum (FHSS)** techniques to deliver a highly robust, covert communication system.
 
 > 🔐 Hide your messages inside sound. Share audio that whispers secrets.
 
@@ -24,7 +24,7 @@ The system addresses common weaknesses in prior audio steganography techniques, 
 - 📦 **Huffman + LZW Compression**: Reduces data size for minimal audio distortion
 - 🎵 **Frequency-Based Frame Selection**: Chooses optimal audio frames based on energy for inaudible embedding
 - 🌐 **Spread Spectrum (FHSS)**: Enhances robustness and anti-detection
-- 📂 **Supports MP3, MP4 → internally converted to WAV**
+- 📂 **Supports MP3,WAV,FLAC → internally converted to WAV**
 - 🔧 Fully implemented in C with minimal external dependencies
 
 ---
