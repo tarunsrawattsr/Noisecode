@@ -45,12 +45,17 @@ void encrypt_and_compress(const char *input, size_t input_len) {
     const unsigned char aes_key[16] = "0123456789abcdef";  // or declare externally
 
     aes_encrypt_ecb((const unsigned char *)input, input_len, aes_key, encrypted, padded_len);
-
+    printf("🔒 AES encryption started...\n");
     printf("AES Encrypted (hex):\n");
     for (size_t i = 0; i < padded_len; ++i)
         printf("%02x", encrypted[i]);
     printf("\n");
-
+    if (encrypted == NULL) {
+        fprintf(stderr, "❌ AES encryption failed.\n");
+        return;
+    }
+    // Now compress the encrypted data using Huffman coding
+    printf("🔒 Starting Huffman encoding...\n");
     // implement huffman compression here
     encrypted = huffman_encode((const unsigned char *)encrypted, padded_len);
     printf("Huffman Encoded:\n");
@@ -72,7 +77,11 @@ void encrypt_and_compress(const char *input, size_t input_len) {
     for (size_t i = 0; i < compressed_len; ++i)
         printf("%d ", compressed[i]);
     printf("\n");
-
+    if (compressed == NULL) {
+        fprintf(stderr, "❌ LZW compression failed.\n");
+        free(encrypted);
+        return;
+    }
     free(encrypted);
     free(compressed);
     printf("✅ Encryption and compression completed successfully.\n");
