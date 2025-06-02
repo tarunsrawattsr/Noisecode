@@ -51,6 +51,18 @@ void encrypt_and_compress(const char *input, size_t input_len) {
         printf("%02x", encrypted[i]);
     printf("\n");
 
+    // implement huffman compression here
+    encrypted = huffman_encode((const unsigned char *)encrypted, padded_len);
+    printf("Huffman Encoded:\n");
+    for (size_t i = 0; encrypted[i] != '\0'; ++i)
+        printf("%c", encrypted[i]);
+    printf("\n");
+    // Now compress the encrypted data using LZW
+    if (encrypted == NULL) {
+        fprintf(stderr, "❌ Huffman encoding failed.\n");
+        free(encrypted);
+        return;
+    }
     int *compressed = NULL;
     size_t compressed_len = 0;
 
