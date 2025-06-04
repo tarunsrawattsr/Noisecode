@@ -1,6 +1,6 @@
-# 🎧 Audiophile – A C-Based Audio Steganographor
+# 🎧 NoiseCode – A C-Based Audio Steganographor
 
-**Audiophile** is a C-based steganography tool designed to securely embed secret text data into audio files without compromising perceptual quality. Audiophile combines **Advanced Encryption Standard (AES)**, **Huffman and LZW compression**, and **Frequency Hopping Spread Spectrum (FHSS)** techniques to deliver a highly robust, covert communication system.
+**NoiseCode** is a C-based steganography tool designed to securely embed secret text data into audio files without compromising perceptual quality. NoiseCode combines **Advanced Encryption Standard (AES)**, **Huffman and LZW compression**, and **Frequency Hopping Spread Spectrum (FHSS)** techniques to deliver a highly robust, covert communication system.
 
 > 🔐 Hide your messages inside sound. Share audio that whispers secrets.
 
